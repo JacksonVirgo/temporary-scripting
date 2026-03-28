@@ -7,6 +7,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+const chevronLeft = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+    </svg>
+`;
+
+const chevronRight = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+`;
+
+const buttonX = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+`;
+
+
 class ExpandedGallery {
     galleryImages = null;
     galleryData = [];
@@ -69,10 +89,7 @@ class ExpandedGallery {
 
         const closeBtn = document.createElement("div");
         closeBtn.className = "expanded-gallery-close";
-        closeBtn.innerHTML = `
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-</svg>`;
+        closeBtn.innerHTML = buttonX;
         closeBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             this.close();
@@ -81,21 +98,27 @@ class ExpandedGallery {
 
         const leftNav = document.createElement("div");
         leftNav.className = "expanded-gallery-nav left";
-        leftNav.addEventListener("click", (e) => { e.stopPropagation(); this.prev(); });
-        leftNav.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-</svg>`;
+        const leftButton = document.createElement("button");
+        leftBtn.className = "expanded-gallery-btn";
+        leftBtn.innerHTML = chevronLeft;
+        leftBtn.addEventListener("click", (e) => { e.stopPropagation(); this.prev(); });
+        leftNav.appendChild(leftBtn);
         this.outerElem.appendChild(leftNav);
 
         const rightNav = document.createElement("div");
         rightNav.className = "expanded-gallery-nav right";
-        rightNav.addEventListener("click", (e) => { e.stopPropagation(); this.next(); });
-        rightNav.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-</svg>`;
+        const rightBtn = document.createElement("button");
+        rightBtn.className = "expanded-gallery-btn";
+        rightBtn.innerHTML = chevronRight;
+        rightBtn.addEventListener("click", (e) => { e.stopPropagation(); this.next(); });
+        rightNav.appendChild(rightBtn);
         this.outerElem.appendChild(rightNav);
 
-        this.outerElem.addEventListener("click", () => this.close());
+        this.outerElem.addEventListener("click", (e) => {
+            if (!this.wrapperElem.contains(e.target)) {
+                this.close();
+            }
+        });
     }
 
     init() {
