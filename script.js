@@ -86,34 +86,6 @@ class ExpandedGallery {
             captionElem.textContent = data.alt;
             imgWrapper.appendChild(captionElem);
         });
-
-        const closeBtn = document.createElement("div");
-        closeBtn.className = "expanded-gallery-close";
-        closeBtn.innerHTML = buttonX;
-        closeBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            this.close();
-        });
-        this.outerElem.appendChild(closeBtn);
-
-        const leftNav = document.createElement("div");
-        leftNav.className = "expanded-gallery-nav left";
-        const leftButton = document.createElement("button");
-        leftBtn.className = "expanded-gallery-btn";
-        leftBtn.innerHTML = chevronLeft;
-        leftBtn.addEventListener("click", (e) => { e.stopPropagation(); this.prev(); });
-        leftNav.appendChild(leftBtn);
-        this.outerElem.appendChild(leftNav);
-
-        const rightNav = document.createElement("div");
-        rightNav.className = "expanded-gallery-nav right";
-        const rightBtn = document.createElement("button");
-        rightBtn.className = "expanded-gallery-btn";
-        rightBtn.innerHTML = chevronRight;
-        rightBtn.addEventListener("click", (e) => { e.stopPropagation(); this.next(); });
-        rightNav.appendChild(rightBtn);
-        this.outerElem.appendChild(rightNav);
-
         this.outerElem.addEventListener("click", (e) => {
             if (!this.wrapperElem.contains(e.target)) {
                 this.close();
