@@ -141,16 +141,6 @@ body {
 	right: 20px;
 }
 
-.expanded-gallery-nav.right svg {
-	right: 10px;
-	left: auto;
-}
-
-.expanded-gallery-nav.left svg {
-	left: 10px;
-	right: auto;
-}
-
 .expanded-gallery-nav svg {
 	width: 30px;
 	height: 50px;
