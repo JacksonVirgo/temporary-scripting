@@ -178,7 +178,7 @@ body {
     align-items: center;
 }
 
-.expanded-gallery-btn::after {
+.expanded-gallery-btn::after, .expanded-gallery-close::after{
     content: "";
     position: absolute;
     inset: 0;
@@ -190,7 +190,7 @@ body {
     z-index: -1;
 }
 
-.expanded-gallery-btn:hover::after {
+.expanded-gallery-btn:hover::after, .expanded-gallery-close:hover::after {
     opacity: 1;
     transform: scale(1);
 }
@@ -200,3 +200,4 @@ body {
     height: 30px;
     display: block;
 }
+
