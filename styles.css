@@ -127,6 +127,10 @@ body {
 	bottom: 0;
 	width: auto;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .expanded-gallery-nav.left {
@@ -171,6 +175,10 @@ body {
     border: none;
     cursor: pointer;
     padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .expanded-gallery-btn::after {
@@ -188,4 +196,10 @@ body {
 .expanded-gallery-btn:hover::after {
     opacity: 1;
     transform: scale(1);
+}
+
+.expanded-gallery-btn svg {
+    width: 30px;
+    height: 30px;
+    display: block;
 }
