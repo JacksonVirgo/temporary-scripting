@@ -137,6 +137,14 @@ body {
 	left: 20px;
 }
 
+.expanded-gallery-nav.left svg {
+    transform: translateX(-2px);
+}
+
+.expanded-gallery-nav.right svg {
+    transform: translateX(2px);
+}
+
 .expanded-gallery-nav.right {
 	right: 20px;
 }
@@ -146,7 +154,6 @@ body {
 	height: 50px;
 	stroke: white;
 	fill: none;
-	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 }
@@ -164,7 +171,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 20px;
 
     display: flex;
     justify-content: center;
