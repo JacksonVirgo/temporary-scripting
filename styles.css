@@ -125,16 +125,16 @@ body {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	width: 50%;
-	cursor: pointer;
+	width: auto;
+    height: auto;
 }
 
 .expanded-gallery-nav.left {
-	left: 0;
+	left: 20px;
 }
 
 .expanded-gallery-nav.right {
-	right: 0;
+	right: 20px;
 }
 
 .expanded-gallery-nav.right svg {
